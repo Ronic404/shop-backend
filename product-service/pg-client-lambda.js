@@ -56,5 +56,4 @@ module.exports.invoke = async event => {
   } finally {
     client.end();
   }
-  
 };

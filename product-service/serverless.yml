@@ -12,8 +12,8 @@
 # Happy Coding!
 
 service: product-service
-app: ronic404
-org: ROnic404
+# app: ronic404
+# org: ronic404
 
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
@@ -45,12 +45,12 @@ provider:
 #            - "Ref" : "ServerlessDeploymentBucket"
 #            - "/*"
 
-enviroment:
-  PG_HOST: ronic404.cduerghk3czq.eu-west-1.rds.amazonaws.com
-  PG_PORT: 5432
-  PG_DATABASE: ronic
-  PG_USERNAME: postgres
-  PG_PASSWORD: Metall404
+  environment:
+    PG_HOST: ronic404.cduerghk3czq.eu-west-1.rds.amazonaws.com
+    PG_PORT: 5432
+    PG_DATABASE: ronic
+    PG_USERNAME: postgres
+    PG_PASSWORD: Metall404
 
 # you can define service wide environment variables here
 #  environment:
@@ -82,6 +82,8 @@ functions:
             parameters: 
               paths: 
                 productId: true
+  hello:
+    handler: pg-client-lambda.invoke
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
